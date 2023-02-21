@@ -1,10 +1,11 @@
 #include<stdio.h>
-int top = -1,size;
-int peep(int a[])
-{
-    if(top>-1 && top<size)
-    return a[top];
-}
+int top = -1;
+int size;
+// int peep(int a[])
+// {
+//     if(top>-1 && top<size)
+//     return a[top];
+// }
 
 int pop(int a[])
 {
@@ -16,7 +17,7 @@ int pop(int a[])
     
     printf("%d is removed from stack\n",a[top]);
     top=top-1;
-    return a[top];   
+    return a[top+1];   
 
 }
 
@@ -36,11 +37,21 @@ int push(int a[],int data)
 }
 
 
-
+void insertatBottom(int s[],int data)
+{
+    if (top==-1)
+    {
+       push(s,data);
+       return;
+    }
+    int x=pop(s);
+    insertatBottom(s,data);
+    push(s,x);
+}
 
 void main()
 {
-    int a[size],temp[size];
+   int a[size],temp[size];
     printf("Enter size of string:");
     scanf("%d",&size);
     for(int i = 0; i < size;i++)
@@ -48,22 +59,9 @@ void main()
         scanf("%d",&a[i]);
         push(temp,a[i]);
     }
-    for(int i=0;i<size;i++)
-    {a[i]=pop(temp);}
-    // pop(a);
-    // prinstack(a);
-    // printf("\npointer is at %d\n",peep(a));
-
-
-    //push(a,5);
-    // push(a,10);
-    // push(a,20);
-    // push(a,30);
-    // push(a,40);
-
-    // pop(a);
-
-
-
-
+    // for(int i=0;i<size;i++)
+    // {a[i]=pop(temp);}
+    
+    insertatBottom(temp,100);
+   
 }
