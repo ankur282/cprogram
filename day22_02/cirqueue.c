@@ -70,11 +70,6 @@ void enqueue(int data)
    
 }
 
-
-
-
-
-
 void main()
 {
     int i,data;

@@ -59,7 +59,7 @@ void displaylist()
 void insert_first()
 {
     struct  node* new=malloc(sizeof(struct node));
-    printf("Enter the node value at starting");
+    printf("Enter the node value at starting:");
     scanf("%d",&new->data);
     new->next=NULL;
     //list is empty
@@ -80,7 +80,7 @@ void insert_first()
 void insert_end()
 {
     struct  node* new=malloc(sizeof(struct node));
-    printf("Enter the node valuecat the end:");
+    printf("Enter the node value at the end:");
     scanf("%d",&new->data);
     new->next=NULL;
     //list is empty
