@@ -77,6 +77,66 @@ void insert_first()
     
 }
 
+
+void insert_between()
+{
+
+    int x;
+    printf("Enter the value of node:");
+    scanf("%d",&x);
+
+    struct  node* new=malloc(sizeof(struct node));
+    printf("Enter the node value in add between:");
+    scanf("%d",&new->data);
+    new->next=NULL;
+
+    struct node* ptr;
+    ptr=start;
+    while (ptr->data!=x)
+    {
+        ptr=ptr->next;
+        if (ptr==NULL)
+        {
+            break;
+        }
+    }
+    new->next=ptr->next;
+    ptr->next=new;
+    
+
+    
+}
+
+void insert_before()
+{
+
+    int x;
+    printf("Enter the value of node:");
+    scanf("%d",&x);
+
+    struct  node* new=malloc(sizeof(struct node));
+    printf("Enter the value of node in add before:");
+    scanf("%d",&new->data);
+    new->next=NULL;
+
+    struct node* ptr;
+    ptr=start;
+    while (ptr->next->data!=x)
+    {
+        ptr=ptr->next;
+        if (ptr==NULL)
+        {
+            break;
+        }
+    }
+    new->next=ptr->next;
+    ptr->next=new;
+    
+
+    
+}
+
+
 void insert_end()
 {
     struct  node* new=malloc(sizeof(struct node));
@@ -94,10 +154,12 @@ void insert_end()
         end->next=new;
         end=new;
     }
-    
-    
 }
 
+void delete_first()
+{
+    
+}
 
 
 
@@ -108,10 +170,20 @@ void main()
 
     displaylist();
 
-    insert_first();
+    // insert_first();
 
-    insert_end();
+    // insert_end();
+
+    // displaylist();
+
+    // insert_between();
+
     displaylist();
+
+    insert_before();
+
+    displaylist();
+
 
 
 
