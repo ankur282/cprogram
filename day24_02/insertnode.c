@@ -1,17 +1,13 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 struct node
 {
     int data;
     struct node* next;
-   
-    
 };
 struct  node* start;
 struct  node* end;
-
-
-
 
 void creatlist()
 {
@@ -40,8 +36,6 @@ void creatlist()
         end=new;
     }
 }
-
-
 
 void displaylist()
 {
@@ -72,15 +66,11 @@ void insert_first()
     {
         new->next=start;
         start=new;
-
     }
-    
 }
-
 
 void insert_between()
 {
-
     int x;
     printf("Enter the value of node:");
     scanf("%d",&x);
@@ -102,9 +92,6 @@ void insert_between()
     }
     new->next=ptr->next;
     ptr->next=new;
-    
-
-    
 }
 
 void insert_before()
@@ -131,11 +118,7 @@ void insert_before()
     }
     new->next=ptr->next;
     ptr->next=new;
-    
-
-    
 }
-
 
 void insert_end()
 {
@@ -158,18 +141,132 @@ void insert_end()
 
 void delete_first()
 {
-    
+    struct node* temp;
+    if (start==NULL)
+    {
+        printf("List is empty........");
+    }
+    else if (start->next==NULL)
+    {
+        temp=start;
+        start=NULL;
+        free(temp);
+        /* code */
+    }
+    else
+    {
+        temp=start;
+        start=start->next;
+        free(temp);
+    }
 }
 
+void delete_end()
+{
+    struct node* temp;
+    struct node* prev;
+    if (start==NULL)
+    {
+        printf("List is empty........");
+    }
+    else if (start->next==NULL)
+    {
+        temp=start;
+        start=NULL;
+        free(temp);
+        /* code */
+    }
+    else
+    {
+        temp=start;
+        while (temp->next->next!=NULL)
+        {
+            
+            temp=temp->next;
+        }
+        temp->next=NULL;
+    }
+}
+
+void delete_specific()
+{
+    int x;
+    struct node* temp;
+    struct node* prev;
+    printf("Enter the value which you what to delelet:");
+    scanf("%d",&x);
+
+    if (start==NULL)
+    {
+        printf("List is empty........");
+    }
+    else if (start->next==NULL && start->data == x)
+    {
+        temp=start;
+        start=NULL;
+        free(temp);
+        /* code */
+    }
+    else
+    {
+        temp=start;
+        while (temp->data!=x)
+        {
+            prev=temp;
+            
+            temp=temp->next;
+            if (temp==NULL)
+            {
+                break;
+               
+            }
+            
+        }
+        if (temp==start)
+        {
+            delete_first();
+           
+        }
+        else if (temp->next==NULL)
+        {
+            delete_end();
+           
+        }
+        else
+        {
+            prev->next=temp->next;
+            free(temp);
+            
+        }
+    }
+}
+
+void reverse_list()
+{
+    struct node* prev=NULL;
+    struct node* next=NULL;
+    struct node* curr=start;
+
+    while(curr!=NULL)
+    {
+        next=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=next;
+    }
+
+    start=prev;
 
 
+    
+}
 
 void main()
 {
     creatlist();
 
     displaylist();
-
+    printf("\n");
     // insert_first();
 
     // insert_end();
@@ -178,18 +275,29 @@ void main()
 
     // insert_between();
 
+    // displaylist();
+
+    // insert_before();
+
+    // displaylist();
+    // delete_first();
+    // printf("\n");
+
+    // displaylist();
+    // printf("\n");
+
+    // delete_end();                                          
+    // printf("\n");
+
+    
+
+    //delete_specific();
+    //printf("\n");
+
+    reverse_list();
+    printf("\n");
+
+
     displaylist();
-
-    insert_before();
-
-    displaylist();
-
-
-
-
-    
-    
-
-
-    
+    printf("\n");
 }
