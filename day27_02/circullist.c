@@ -1,15 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
-
 struct node
 {
     int data;
     struct node* next;
 };
-struct  node* start;
-struct  node* end;
-
-
+struct  node* start=NULL;
+struct  node* end=NULL;
 
 void creatnode()
 {
@@ -42,18 +39,23 @@ void creatnode()
     }
 }
 
-
 void displaynode()
 {
     struct node* end;
-    end=start;
     
-
+    if (start==NULL)
+    {
+        printf("List is empty......");
+        
+    }
+    else{
+        end=start;
     do
     {
         printf("The data is: %d\n",end->data);
         end=end->next;
     } while (end!=start);
+    }
 
 }
 
@@ -124,7 +126,6 @@ void insert_before()
     ptr->next=new;
 }
 
-
 void delete_first()
 {
     struct node* temp;
@@ -193,6 +194,7 @@ void delete_specific()
         start=NULL;
         end=NULL;
         free(temp);
+        printf("only element deleted ");
         /* code */
     }
     else
@@ -229,24 +231,23 @@ void delete_specific()
     }
 }
 
-
 void main()
 {
     creatnode();
     printf("\n");
     displaynode();
+    // // printf("\n");
+    // insert_first();
     // printf("\n");
-    insert_first();
-    printf("\n");
-    insert_end();
-    printf("\n");
-    displaynode();
-    // insert_before();
-    printf("\n");
-    // delete_first();
+    // insert_end();
     // printf("\n");
-    // delete_end();
+    // displaynode();
+    // // insert_before();
     // printf("\n");
+    // // delete_first();
+    // // printf("\n");
+    // // delete_end();
+    // // printf("\n");
     delete_specific();
     printf("\n");
     displaynode();
