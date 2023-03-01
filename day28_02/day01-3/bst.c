@@ -117,7 +117,9 @@ void main()
     display_inorder(root);
     printf("\n");
 
+    printf("Max:\n");
     display_min(root);
+    printf("Min:\n");
 
     display_max(root);
 
