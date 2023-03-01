@@ -19,10 +19,13 @@ struct node* create_node(int data)
 
 struct node* insert_bst(struct node* root,int data)
 {
-    if(data>root)
+    if(root==NULL)
     {
+        root=create_node(data);
+
 
     }
+    return root;
 }
 
 struct node* take_input(struct node* root)
