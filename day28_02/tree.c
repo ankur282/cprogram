@@ -7,10 +7,7 @@ struct node
     struct node* right;
     struct node* left;
 
-};                                                                      
-
-struct  node* start=NULL;
-struct  node* end=NULL;
+};
 
 struct  node* createnode(int data)
 {
@@ -44,12 +41,23 @@ struct node* create_tree(struct node* root)
 
 }
 
+void display_inorder(struct node *root)
+{
+if(root==NULL){return;}
+display_inorder(root->left);
+printf("%d\n",root->data);
+display_inorder(root->right);
+}
+
 
 
 void main()
 {
     struct node* root=NULL;
-    root=createnode(root);
+    root=create_tree(root);
+    display_inorder(root)
+
+    printf("%d",root->data);
 
 
 } 

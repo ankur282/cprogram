@@ -3,32 +3,32 @@
 
 struct node
 {
-int data;
-struct node* left;
-struct node* right;
+    int data;
+    struct node* left;
+    struct node* right;
 };
 
 struct node* create_node(int data)
 {
-struct node* new=malloc(sizeof(struct node));
-new->data=data;
-new->left=NULL;
-new->right=NULL;
-return new;
+    struct node* new=malloc(sizeof(struct node));
+    new->data=data;
+    new->left=NULL;
+    new->right=NULL;
+    return new;
 }
 
 
 struct node *create_tree(struct node *root)
 {
-int data;
-printf("enter data for node: ");
-scanf("%d",&data);
-if(data==-1)
-{return NULL;}
-root=create_node(data);
-root->left=create_tree(root->left);
-root->right=create_tree(root->right);
-return root;
+    int data;
+    printf("enter data for node: ");
+    scanf("%d",&data);
+    if(data==-1)
+    {return NULL;}
+    root=create_node(data);
+    root->left=create_tree(root->left);
+    root->right=create_tree(root->right);
+    return root;
 }
 
 void display_inorder(struct node *root)
