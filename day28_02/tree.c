@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<math.h>
 
 struct node
 {
@@ -50,12 +51,29 @@ display_inorder(root->right);
 }
 
 
+//Hight of tree
+int hightTree(node* root)
+{
+    int x,y;
+    if(root==NULL)
+    {
+        return 0;
+    }
+    x=hightTree(root->left);
+    y=hightTree(root->right);
+    if(x>y)
+    return x+1;
+    else
+    return y+1;
+}
+
+
 
 void main()
 {
     struct node* root=NULL;
     root=create_tree(root);
-    display_inorder(root)
+    display_inorder(root);
 
     printf("%d",root->data);
 
