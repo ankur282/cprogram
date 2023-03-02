@@ -177,12 +177,16 @@ void isMerge()
    {
     while (ptr2->next!=NULL && ptr1->next!=NULL)
     {
-        if((ptr2->data)>(ptr1->data))
+        if((ptr2->data)(ptr1->data))
         {
             list=ptr2->data;
             ptr1->data=list->next;
+
             
-            
+        }
+        else{
+            list=ptr1->data;
+
         }
         ptr2=ptr2->next;
     
