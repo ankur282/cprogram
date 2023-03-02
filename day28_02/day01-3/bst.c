@@ -106,6 +106,12 @@ if(root->right==NULL){
 display_max(root->right);
 // printf("%d\n",root->data);
 // display_inorder(root->right);
+}e
+
+
+int isdelete(struct node* root)
+{
+    
 }
 
 
