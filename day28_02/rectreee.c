@@ -55,15 +55,70 @@ display_inorder(root->right);
 printf("%d\n",root->data);
 }
 
+struct node* display_min(struct node *root)
+{
+if(root->left==NULL){
+    //printf("%d\n",root->data);
+    return root->data;
+    }
+display_min(root->left);
+// printf("%d\n",root->data);
+// display_inorder(root->right);
+}
+
+struct node* isdelete(struct node* root,int data)
+{
+    if(root=NULL)
+    {
+        return root;
+    }
+    if (data<root->data)
+    {
+        root->left=isdelete(root->left,data);
+
+        /* code */
+    }
+    else if(data>root->data)
+    {
+        root->right=isdelete(root->right,data);
+    }
+    else
+    {
+        if(root->left==NULL)
+        {
+            struct node* temp=root->right;
+            free(root);
+            return temp;
+        }
+        else if(root->right==NULL)
+        {
+            struct node* temp=root->left;
+            free(root);
+            return temp;
+        }
+        struct node* temp=display_min(root->right);
+        root->data=temp->data;
+        root->right=isdelete(root->right,temp->data);
+    }
+
+return root;
+
+}
+
+
+
 
 void main()
 {
+    //int data;
 struct node *root=NULL;
 root=create_tree(root);
 printf("inorder : \n");
 display_inorder(root);
-printf("preorder : \n");
-display_pre(root);
-printf("postorder : \n");
-display_post(root);
+// printf("Enter the data which you want to delete:");
+
+// isdelete(root,15);
+// printf("inorder : \n");
+// display_inorder(root);
+
 }

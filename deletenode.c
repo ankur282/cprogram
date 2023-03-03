@@ -70,21 +70,6 @@ printf("%d\n",root->data);
 display_inorder(root->right);
 }
 
-void display_pre(struct node *root)
-{
-if(root==NULL){return;}
-printf("%d\n",root->data);
-display_pre(root->left);
-display_pre(root->right);
-}
-
-void display_post(struct node *root)
-{
-if(root==NULL){return;}
-display_post(root->left);
-display_post(root->right);
-printf("%d\n",root->data);
-}
 
 int display_min(struct node *root)
 {
@@ -97,49 +82,58 @@ display_min(root->left);
 // display_inorder(root->right);
 }
 
-int display_max(struct node *root)
+struct node* isdelete(struct node* root,int data)
 {
-if(root->right==NULL){
-    printf("%d\n",root->data);
-    return;
-    }
-display_max(root->right);
-// printf("%d\n",root->data);
-// display_inorder(root->right);
-}
-
-
-struct node* isdelete(struct node* root, int data)
-{
-    if(root==NULL)
+    if(root=NULL)
     {
+        return root;
+    }
+    if (data<root->data)
+    {
+        root->left=isdelete(root->left,data);
 
+        /* code */
+    }
+    else if(data>root->data)
+    {
+        root->right=isdelete(root->right,data);
+    }
+    else
+    {
+        if(root->left==NULL)
+        {
+            struct node* temp=root->right;
+            free(root);
+            return temp;
+        }
+        else if(root->right==NULL)
+        {
+            struct node* temp=root->left;
+            free(root);
+            return temp;
+        }
+        struct node* temp=display_min(root->right);
+        root->data=temp->data;
+        root->right=isdelete(root->right,temp->data);
     }
 
-    
-}
+return root;
 
+}
 
 void main()
 {
     struct node* root;
     root=take_input(root);
 
+
     display_inorder(root);
     printf("\n");
 
-    printf("Max:\n");
-    display_min(root);
-    printf("Min:\n");
+    isdelete(root,15);
+printf("inorder : \n");
+display_inorder(root);
 
-    display_max(root);
-
-    //display_pre(root);
-    
-    //display_post(root);
 
     
-
-    
-
 }

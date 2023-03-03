@@ -109,15 +109,7 @@ display_max(root->right);
 }
 
 
-struct node* isdelete(struct node* root, int data)
-{
-    if(root==NULL)
-    {
 
-    }
-
-    
-}
 
 
 void main()

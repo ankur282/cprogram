@@ -13,7 +13,7 @@ struct node* end2;
 
 struct  node* start1;
 struct node* end1;
-struct node* list=NULL;
+struct node* list;
 int x,n;
 
 
@@ -172,42 +172,55 @@ void isMerge()
 
     ptr1=start1;
     ptr2=start2;
+    
 
    if(x>=n)
    {
-    while (ptr2->next!=NULL && ptr1->next!=NULL)
-    {
-        if((ptr2->data)(ptr1->data))
-        {
-            list=ptr2->data;
-            ptr1->data=list->next;
-
-            
-        }
-        else{
-            list=ptr1->data;
-
-        }
-        ptr2=ptr2->next;
-    
-    }
-
-    
-   }
-   else
-   {
-    while (ptr1->next!=NULL && ptr1->next!=NULL)
+    while (ptr2->next!=NULL)
     {
         if((ptr2->data)>(ptr1->data))
         {
-            list=ptr2->data;
-            ptr1->data=list->next;
+            struct node* list=malloc(sizeof(struct node));
+            list->data=ptr1->data;
+            start1=ptr1->next;
+            ptr2=ptr2->next;
             
+        }
+        else{
+            struct node* list=malloc(sizeof(struct node));
+            list->data=ptr2->data;
+            start2=ptr2->next;
+            ptr1=ptr1->next;
             
 
         }
-        ptr1=ptr1->next;
     }
+    
+    list=list->next;
+    }
+   else
+   {
+    while (ptr1->next!=NULL)
+    {
+        if((ptr2->data)>(ptr1->data))
+        {
+            struct node* list=malloc(sizeof(struct node));
+            list->data=ptr1->data;
+            start1=ptr1->next;
+            ptr2=ptr2->next;
+        }
+        else
+        {
+            struct node* list=malloc(sizeof(struct node));
+            list->data=ptr2->data;
+            start2=ptr2->next;
+            ptr1=ptr1->next;
+        }
+        
+    }
+    
+   
+    list=list->next;
 
    }
 
