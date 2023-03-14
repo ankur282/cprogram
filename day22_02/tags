@@ -1,0 +1,30 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+delete_back	doublesideque.c	/^void delete_back(int q[])$/;"	f
+dqueue	cirqueue.c	/^void dqueue(int q[])$/;"	f
+endqueue	queue.c	/^void endqueue(int q[])$/;"	f
+enqueue	cirqueue.c	/^void enqueue(int data)$/;"	f
+enqueue	queue.c	/^void enqueue(int data)$/;"	f
+f	cirqueue.c	/^int f=-1;$/;"	v
+f	doublesideque.c	/^int f=-1;$/;"	v
+f	queue.c	/^int f=0;$/;"	v
+insert_back	doublesideque.c	/^void insert_back(int data)$/;"	f
+insert_front	doublesideque.c	/^void insert_front(int data)$/;"	f
+isqueuefull	cirqueue.c	/^int isqueuefull()$/;"	f
+isqueuefull	doublesideque.c	/^int isqueuefull()$/;"	f
+main	cirqueue.c	/^void main()$/;"	f
+main	doublesideque.c	/^void main()$/;"	f
+main	queue.c	/^void main()$/;"	f
+n	cirqueue.c	/^int n=5;$/;"	v
+n	doublesideque.c	/^int n=5;$/;"	v
+n	queue.c	/^int n=5;$/;"	v
+q	cirqueue.c	/^int q[5];$/;"	v
+q	doublesideque.c	/^int q[5];$/;"	v
+q	queue.c	/^int q[5];$/;"	v
+r	cirqueue.c	/^int r=-1;$/;"	v
+r	doublesideque.c	/^int r=-1;$/;"	v
+r	queue.c	/^int r=-1;$/;"	v

@@ -1,0 +1,24 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+createNode	ass.c	/^void createNode()$/;"	f
+create_node	deletenode.c	/^struct node* create_node(int data)$/;"	f
+data	ass.c	/^    int data;$/;"	m	struct:node	file:
+data	deletenode.c	/^    int data;$/;"	m	struct:node	file:
+display_inorder	deletenode.c	/^void display_inorder(struct node *root)$/;"	f
+display_min	deletenode.c	/^int display_min(struct node *root)$/;"	f
+insert_bst	deletenode.c	/^struct node* insert_bst(struct node* root,int data)$/;"	f
+isdelete	deletenode.c	/^struct node* isdelete(struct node* root,int data)$/;"	f
+left	deletenode.c	/^    struct node* left;$/;"	m	struct:node	typeref:struct:node::node	file:
+main	deletenode.c	/^void main()$/;"	f
+main	happyn.c	/^int main()$/;"	f
+main	hw.c	/^int main()$/;"	f
+main	sharem.c	/^int main()$/;"	f
+next	ass.c	/^    struct node *next;$/;"	m	struct:node	typeref:struct:node::node	file:
+node	ass.c	/^struct node$/;"	s	file:
+node	deletenode.c	/^struct node$/;"	s	file:
+right	deletenode.c	/^    struct node* right;$/;"	m	struct:node	typeref:struct:node::node	file:
+take_input	deletenode.c	/^struct node* take_input(struct node* root)$/;"	f

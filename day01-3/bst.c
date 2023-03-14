@@ -57,9 +57,7 @@ struct node* take_input(struct node* root)
         scanf("%d",&data);   
         /* code */
     }
-
 return root;
-
 }
 
 void display_inorder(struct node *root)
@@ -129,9 +127,4 @@ void main()
     //display_pre(root);
     
     //display_post(root);
-
-    
-
-    
-
 }

@@ -11,7 +11,6 @@ void swap(int *a,int *b)
 
 }
 
-
 void heapify(int array[],int size,int i)
 {
     if(size==1)

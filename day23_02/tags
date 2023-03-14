@@ -1,0 +1,18 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+creatlist	liusefor.c	/^void creatlist()$/;"	f
+data	linkedlist.c	/^    int data;$/;"	m	struct:node	file:
+data	liusefor.c	/^    int data;$/;"	m	struct:node	file:
+displaylist	liusefor.c	/^void displaylist()$/;"	f
+main	linkedlist.c	/^void main()$/;"	f
+main	liusefor.c	/^void main()$/;"	f
+next	linkedlist.c	/^    struct node* next;$/;"	m	struct:node	typeref:struct:node::node	file:
+next	liusefor.c	/^    struct node* next;$/;"	m	struct:node	typeref:struct:node::node	file:
+node	linkedlist.c	/^struct node$/;"	s	file:
+node	liusefor.c	/^struct node$/;"	s	file:
+start	linkedlist.c	/^struct  node* start;$/;"	v	typeref:struct:node
+start	liusefor.c	/^struct  node* start;$/;"	v	typeref:struct:node

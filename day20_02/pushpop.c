@@ -1,5 +1,6 @@
 #include<stdio.h>
 int top = -1,size;
+
 int peep(int a[])
 {
     if(top>-1 && top<size)
