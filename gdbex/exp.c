@@ -7,7 +7,7 @@ int main()
     ptr=(int*)malloc(sizeof(int)*4);
     int x=10;
     int y=22;
-    ptr=&x;
+    *ptr=&x;
     printf("%d\n",*ptr);
     free(ptr);
 
