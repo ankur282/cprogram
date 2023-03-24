@@ -12,4 +12,5 @@ int main()
     }
     pid = wait(&stat);
     printf("%d\n",WEXITSTATUS(stat));
+    fprintf(FILE *fs,"heklokhh",)
 }
