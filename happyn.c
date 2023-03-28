@@ -13,7 +13,7 @@ while(hnum!=1 && hnum!=4)
 	hnum=0;
 	while(n>0)
 	{
-	rem=n%10;
+	rem=n%10
 	hnum=hnum+(rem*rem);
 	n=n/10;
 	}

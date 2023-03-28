@@ -28,7 +28,7 @@ printf("Enter the selling price:");
 scanf("%d",&sell_p);
 total=total+(sell_p*qua-buy_p*qua);
 }
-(total>0)?(printf("you are in profit")):((total==0)?printf("NO profit No loss"):(printf("you are in loss")));
+(total>0)(printf("you are in profit")):((total==0)?printf("NO profit No loss"):(printf("you are in loss")));
 printf("is: %d",total);
 }
 
