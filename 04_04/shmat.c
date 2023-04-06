@@ -8,7 +8,7 @@ int main()
 {
     struct shmid_ds buf;
     // size_t k=10;
-    size_t s=20;
+    size_t s=30;
     int sid;
     sid = shmget(555,s,0666|IPC_CREAT);
     printf("Sh mem ID : %d\n",sid);
