@@ -18,7 +18,7 @@ int main(int argc , char*argv[])
 	outputFD =open(argv[2],O_CREAT|O_RDWR,777);
 	if(outputFD ==-1)
 	{
-		printf("Opening fiel\n");
+		printf("Opening file\n");
 		return;
 	}
 	while(numRead = read(inputFD,buf,BUF_SIZE))
