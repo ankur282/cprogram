@@ -6,7 +6,7 @@ int main()
     if (ret == -1)
     {
         printf("execl retured error %d\n",ret);
-        /* code */
+       
     }
     
 }
