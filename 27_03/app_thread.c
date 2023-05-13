@@ -16,6 +16,9 @@ int main()
     printf("File opened with fd: %d \n",fd);
     pthread_create(&t1,NULL,th_fn,"thread one");
     pthread_create(&t2,NULL,th_fn,"thread two");
+    sleep(8);
+    pthread_cancel(t1);
+    pthread_cancel(t2);
     pthread_join(t1,NULL);
     pthread_join(t2,NULL);
 

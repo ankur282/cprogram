@@ -21,5 +21,4 @@ int main()
     munmap(c,file_info.st_size);
     close(fd);
     return 0;
-
 }

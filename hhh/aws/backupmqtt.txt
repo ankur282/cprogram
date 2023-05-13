@@ -1,0 +1,94 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<mysql/mysql.h>
+#include<MQTTClient.h>
+#include<string.h>
+
+#define AWS_IOT_ENDPOINT "a2d7b4vsi90j5r-ats.iot.eu-north-1.amazonaws.com"
+#define CLIENT_ID "iotconsole-18ccc840-0f46-4e1d-90e5-9b151a88b31e"
+#define CERTIFICATE_PATH "/home/ankur/Documents/c_traning/hhh/aws/certificate.pem.crt"
+#define PRIVATE_KEY_PATH "/home/ankur/Documents/c_traning/hhh/aws/private.pem.key"
+#define ROOT_CA_PATH "/home/ankur/Documents/c_traning/hhh/aws/RootCA1.pem"
+
+
+
+
+
+
+
+
+
+void messageCallback(void* context, char* topicName, int topicLen, MQTTClient_message* message) {
+    printf("Message received on topic: %.*s\n", topicLen, topicName);
+    printf("Message content: %.*s\n", message->payloadlen, (char*)message->payload);
+    MQTTClient_freeMessage(&message);
+    MQTTClient_free(topicName);
+}
+
+// Function to connect AWS IoT MQTT client
+int connectAwsIotMqttClient() {
+    MQTTClient client;
+    MQTTClient_connectOptions conn_opts = MQTTClient_connectOptions_initializer;
+    int rc;
+
+    // Initialize the MQTT client
+    MQTTClient_create(&client, AWS_IOT_ENDPOINT, CLIENT_ID, MQTTCLIENT_PERSISTENCE_NONE, NULL);
+
+    // Set the MQTT callback function for message reception
+    MQTTClient_setCallbacks(client, NULL, NULL, messageCallback, NULL);
+
+    // Set the TLS options using the certificate and private key files
+    conn_opts.ssl = MQTTClient_SSLOptions_initializer;
+    conn_opts.ssl.CApath = ROOT_CA_PATH;
+    conn_opts.ssl->trustStore = CERTIFICATE_PATH;
+    conn_opts.ssl->keyStore = PRIVATE_KEY_PATH;
+
+    // Connect to AWS IoT
+    rc = MQTTClient_connect(client, &conn_opts);
+    if (rc != MQTTCLIENT_SUCCESS) {
+        printf("Failed to connect to AWS IoT, return code %d\n", rc);
+        return EXIT_FAILURE;
+    }
+
+    printf("Connected to AWS IoT\n");
+
+    // Subscribe to a topic
+    MQTTClient_subscribe(client, "myTopic", 1);
+
+    // Publish a message to a topic
+    MQTTClient_message pubmsg = MQTTClient_message_initializer;
+    pubmsg.payload = "Hello from AWS IoT MQTT C client";
+    pubmsg.payloadlen = (int)strlen(pubmsg.payload);
+    pubmsg.qos = 1;
+    pubmsg.retained = 0;
+    MQTTClient_deliveryToken token;
+    MQTTClient_publishMessage(client, "myTopic", &pubmsg, &token);
+    printf("Message published\n");
+
+    // Wait for messages and events
+    while (1) {
+        rc = MQTTClient_yield(client, 1000);
+        if (rc != MQTTCLIENT_SUCCESS) {
+            printf("MQTTClient_yield() returned %d\n", rc);
+            return EXIT_FAILURE;
+        }
+    }
+
+    // Disconnect from AWS IoT
+    MQTTClient_disconnect(client, 0);
+
+    // Cleanup
+    MQTTClient_destroy(&client);
+
+    return EXIT_SUCCESS;
+}
+
+
+int main() {
+
+    //insert_offline();
+    // insert_online();
+    return connectAwsIotMqttClient();
+
+
+}
