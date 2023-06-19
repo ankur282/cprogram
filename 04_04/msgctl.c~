@@ -8,7 +8,7 @@ int main()
 {
     int qid;
     
-    qid = msgget(555,IPC_CREAT|0644);
+    qid = msgget(555,IPC_CREAT|644);
     printf("qid = %d\n",qid);
     getchar();
     msgctl(qid,IPC_RMID,NULL);
