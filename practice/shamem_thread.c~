@@ -5,6 +5,9 @@
 #include<sys/shm.h>
 #include<unistd.h>
 #include<string.h>
+#include<semaphore.h>
+
+sem_t s;
 
 
 void* writer(void *arg)
@@ -13,7 +16,7 @@ void* writer(void *arg)
 	int shmid = shmget(key,2048,0666|IPC_CREAT);
 	char *msg = (char*)shmat(shmid,NULL,0);
 
-	printf("Write a msg:\n");
+	printf("Write a msg:");
 	//scanf("%20s",msg);
 	gets(msg);
 
