@@ -10,15 +10,16 @@ sem_t s;
 void* writer(void *arg)
 {
 		key_t key = ftok("shmfile",65);
-		int shmid = shmget(key,2048,0666|IPC_CREAT);
+		int shmid = shmget(key,1024,0666|IPC_CREAT);
 		char *msg = (char*)shmat(shmid,NULL,0);
+		//printf("the id is:%d",shmid);
 		
 		while(1)
 		{
 			sem_wait(&s);
 			printf("Write a msg:");
 			//scanf("%20s",msg);
-			fgets(msg,2048,stdin);
+			fgets(msg,1024,stdin);
 			printf("The message is:%s",msg);
 			sem_post(&s);
 			sleep(1);
@@ -32,7 +33,7 @@ void* writer(void *arg)
 void* reader(void *arg)
 {
 		key_t key = ftok("shmfile",65);
-		int shmid = shmget(key,2048,0666);
+		int shmid = shmget(key,1024,0666);
 		char *msg =(char*)shmat(shmid,NULL,0);
 		while(1)
 		{
