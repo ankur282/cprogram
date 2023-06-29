@@ -29,9 +29,8 @@ struct node* insert_bst(struct node* root,int data)
     {
         if (data<root->data)
         {
-            // inster on left 
+            // inster on left
             root->left=insert_bst(root->left,data);
-            /* code */
         }
         else
         {
@@ -54,7 +53,7 @@ struct node* take_input(struct node* root)
     {
         root=insert_bst(root,data);
         printf("Enter the data for node:");
-        scanf("%d",&data);   
+        scanf("%d",&data);
         /* code */
     }
 
